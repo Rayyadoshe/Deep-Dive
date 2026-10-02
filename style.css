@@ -1,0 +1,384 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2937;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: #172033;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    margin-top: 8px;
+    color: #cbd5e1;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+}
+
+.mode-button {
+    padding: 12px 22px;
+    border: 2px solid #172033;
+    background-color: white;
+    color: #172033;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.mode-button:hover {
+    background-color: #e5e7eb;
+}
+
+.mode-button.active {
+    background-color: #172033;
+    color: white;
+}
+
+
+/* EXPLANATION */
+
+.explanation {
+    max-width: 900px;
+    margin: 0 auto 25px;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.explanation h2 {
+    margin-bottom: 8px;
+}
+
+.explanation p {
+    color: #64748b;
+}
+
+
+/* MAIN CHAT */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+
+/* CARDS */
+
+.user-card,
+.network-card,
+.hash-card,
+.database-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #dbe1e8;
+}
+
+.user-card h2,
+.network-card h2,
+.hash-card h2,
+.database-card h2 {
+    margin-top: 0;
+}
+
+.role {
+    color: #64748b;
+    margin-top: -8px;
+}
+
+
+/* INPUTS */
+
+label {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+textarea,
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+
+/* BUTTONS */
+
+.primary-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #172033;
+    color: white;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background-color: #2d3a52;
+}
+
+
+/* KEY INFORMATION */
+
+.key-box {
+    margin-top: 25px;
+    padding: 15px;
+
+    background-color: #f8fafc;
+
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.key-box h3 {
+    margin-top: 0;
+    font-size: 15px;
+}
+
+.key-box p {
+    font-family: monospace;
+    font-size: 12px;
+    word-break: break-all;
+    color: #475569;
+}
+
+
+/* NETWORK */
+
+.network-card {
+    text-align: center;
+}
+
+.network-description {
+    color: #64748b;
+}
+
+.arrow {
+    margin: 25px 0;
+    padding: 12px;
+    background-color: #eef2f7;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.ciphertext {
+    min-height: 120px;
+    padding: 15px;
+
+    background-color: #111827;
+    color: #d1fae5;
+
+    border-radius: 8px;
+
+    font-family: monospace;
+    font-size: 12px;
+
+    word-break: break-all;
+    text-align: left;
+}
+
+.network-extra {
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+
+/* RECEIVED MESSAGE */
+
+.received-message {
+    min-height: 120px;
+    padding: 15px;
+
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+
+    border-radius: 8px;
+    word-break: break-word;
+}
+
+
+/* PROCESS */
+
+.process-section {
+    max-width: 1160px;
+    margin: 20px auto;
+    padding: 20px;
+
+    background-color: white;
+
+    border: 1px solid #dbe1e8;
+    border-radius: 12px;
+}
+
+.process-section h2 {
+    margin-top: 0;
+}
+
+#process {
+    line-height: 1.8;
+}
+
+
+/* HASHING */
+
+.hash-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.result-box h3 {
+    margin-top: 0;
+}
+
+.result-box p {
+    font-family: monospace;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+
+/* DATABASE */
+
+.database {
+    margin-top: 20px;
+    padding: 18px;
+
+    background-color: #111827;
+    color: white;
+
+    border-radius: 8px;
+}
+
+.database-value {
+    padding: 10px;
+
+    background-color: #1f2937;
+
+    border-radius: 6px;
+
+    font-family: monospace;
+    font-size: 12px;
+
+    word-break: break-all;
+}
+
+
+/* VERIFICATION */
+
+.verification-result {
+    margin-top: 25px;
+    padding: 20px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+.success {
+    background-color: #f0fdf4;
+    border-color: #86efac;
+    color: #166534;
+}
+
+.failure {
+    background-color: #fef2f2;
+    border-color: #fca5a5;
+    color: #991b1b;
+}
+
+
+/* STATUS */
+
+.status-section {
+    text-align: center;
+    margin: 20px;
+}
+
+#status {
+    font-weight: bold;
+}
+
+
+/* HIDE SECTIONS */
+
+.hidden {
+    display: none;
+}
+
+
+/* SMALLER SCREENS */
+
+@media (max-width: 900px) {
+
+    main,
+    .hash-container {
+        grid-template-columns: 1fr;
+    }
+
+}

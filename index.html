@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureChat</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🔐 SecureChat</h1>
+    <p>Encryption & Password Security Simulator</p>
+</header>
+
+<nav>
+    <button id="symmetricButton" class="mode-button active">
+        Symmetric
+    </button>
+
+    <button id="asymmetricButton" class="mode-button">
+        Asymmetric
+    </button>
+
+    <button id="hybridButton" class="mode-button">
+        Hybrid
+    </button>
+
+    <button id="hashingButton" class="mode-button">
+        Password Hashing
+    </button>
+</nav>
+
+
+<!-- ENCRYPTION AREA -->
+
+<section id="encryptionArea">
+
+    <section class="explanation">
+
+        <h2 id="modeTitle">
+            Symmetric Encryption – AES-GCM
+        </h2>
+
+        <p id="modeDescription">
+            Alice and Bob use the same secret key to encrypt and decrypt the message.
+        </p>
+
+    </section>
+
+
+    <main>
+
+        <!-- ALICE -->
+
+        <section class="user-card">
+
+            <h2>👩 Alice</h2>
+
+            <p class="role">
+                Sender
+            </p>
+
+            <label for="message">
+                Message to Bob
+            </label>
+
+            <textarea
+                    id="message"
+                    placeholder="Write a secret message..."></textarea>
+
+            <button id="sendButton" class="primary-button">
+                🔐 Encrypt & Send
+            </button>
+
+            <div class="key-box">
+
+                <h3>Alice's key information</h3>
+
+                <p id="aliceKey">
+                    No key generated yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- NETWORK -->
+
+        <section class="network-card">
+
+            <h2>🌐 Network</h2>
+
+            <p class="network-description">
+                This is the data travelling between Alice and Bob.
+            </p>
+
+            <div class="arrow">
+                Alice → Network → Bob
+            </div>
+
+            <h3>Encrypted data</h3>
+
+            <div id="networkData" class="ciphertext">
+                Nothing sent yet.
+            </div>
+
+            <div id="networkExtra" class="network-extra"></div>
+
+        </section>
+
+
+        <!-- BOB -->
+
+        <section class="user-card">
+
+            <h2>👨 Bob</h2>
+
+            <p class="role">
+                Receiver
+            </p>
+
+            <h3>Received message</h3>
+
+            <div id="receivedMessage" class="received-message">
+                No message received yet.
+            </div>
+
+            <div class="key-box">
+
+                <h3>Bob's key information</h3>
+
+                <p id="bobKey">
+                    No key generated yet.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <section class="process-section">
+
+        <h2>What is happening?</h2>
+
+        <div id="process">
+            Choose an encryption method and send a message.
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- PASSWORD HASHING AREA -->
+
+<section id="hashingArea" class="hidden">
+
+    <section class="explanation">
+
+        <h2>Password Hashing – PBKDF2 + SHA-256</h2>
+
+        <p>
+            A password is combined with a random salt and processed
+            using PBKDF2. The password itself does not need to be stored.
+        </p>
+
+    </section>
+
+
+    <div class="hash-container">
+
+        <!-- CREATE PASSWORD -->
+
+        <section class="hash-card">
+
+            <h2>1. Create Password</h2>
+
+            <label for="passwordInput">
+                Password
+            </label>
+
+            <input
+                    type="password"
+                    id="passwordInput"
+                    placeholder="Enter a password">
+
+            <button id="hashButton" class="primary-button">
+                #️⃣ Hash Password
+            </button>
+
+
+            <div class="result-box">
+
+                <h3>Original Password</h3>
+
+                <p id="originalPassword">
+                    Nothing entered yet.
+                </p>
+
+            </div>
+
+
+            <div class="result-box">
+
+                <h3>Random Salt</h3>
+
+                <p id="saltOutput">
+                    No salt generated yet.
+                </p>
+
+            </div>
+
+
+            <div class="result-box">
+
+                <h3>Derived Hash</h3>
+
+                <p id="hashOutput">
+                    No hash generated yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DATABASE SIMULATION -->
+
+        <section class="database-card">
+
+            <h2>🗄️ Stored Data</h2>
+
+            <p>
+                Imagine this is the application's database.
+            </p>
+
+            <div class="database">
+
+                <p>
+                    <strong>Password:</strong>
+                    ❌ NOT STORED
+                </p>
+
+                <p>
+                    <strong>Salt:</strong>
+                </p>
+
+                <div id="storedSalt" class="database-value">
+                    Nothing stored
+                </div>
+
+                <p>
+                    <strong>Hash:</strong>
+                </p>
+
+                <div id="storedHash" class="database-value">
+                    Nothing stored
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- VERIFY PASSWORD -->
+
+        <section class="hash-card">
+
+            <h2>2. Verify Password</h2>
+
+            <label for="verifyPasswordInput">
+                Enter password again
+            </label>
+
+            <input
+                    type="password"
+                    id="verifyPasswordInput"
+                    placeholder="Try the password again">
+
+            <button id="verifyButton" class="primary-button">
+                Verify Password
+            </button>
+
+            <div id="verificationResult" class="verification-result">
+                No verification yet.
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <section class="process-section">
+
+        <h2>What is happening?</h2>
+
+        <div>
+            1. The user creates a password.<br>
+            2. A random salt is generated.<br>
+            3. PBKDF2 processes the password and salt using SHA-256.<br>
+            4. The application stores the salt and derived hash — not the password.<br>
+            5. When the user logs in, the entered password is processed again with the stored salt.<br>
+            6. The new result is compared with the stored hash.
+        </div>
+
+    </section>
+
+</section>
+
+
+<section class="status-section">
+
+    <p id="status">
+        Ready.
+    </p>
+
+</section>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
